@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types"; //////////////////////////////////////  while imparting proptypes
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -8,12 +8,12 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode}  bg-${props.mode}`}
     >
       <div className="container-fluid">
-        {/* <Link className="navbar-brand" to="/">
-          {props.title} {/*  impart props 
-        </Link> */}
-        <a className="navbar-brand" href="#">
-          {props.title} {/*  impart props */}
-        </a>
+        <Link className="navbar-brand" to="/">
+          {props.title} {/*  impart props  */}
+        </Link>
+         {/* <a className="navbar-brand" href="#">  */}
+          {/* {props.title}  impart props */}
+        {/* </a> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -28,14 +28,14 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav  mb-2 mb-lg-0">
             <li className="nav-item">
-              {/* <Link className="nav-link active" aria-current="page" to="/"> Home </Link> */}
-              <a className="nav-link active" aria-current="page" href="#"> Home </a>
+              <Link className="nav-link active" aria-current="page" to="/"> Home </Link>
+              {/* <a className="nav-link active" aria-current="page" href="#"> Home </a> */}
 
              
             </li>
             <li className="nav-item">
-              {/* <Link className="nav-link" to="/about"> About </Link> */}
-              <a className="nav-link" href="/about"> About </a>
+              <Link className="nav-link" to="/about"> About </Link>
+              {/* <a className="nav-link" href="/about"> About </a> */}
 
              
             </li>
@@ -67,7 +67,7 @@ export default function Navbar(props) {
               } d-flex`}
               htmlFor="flexSwitchCheckDefault"
             >
-              Enable Dark Mode
+             Disable {props.mode} mode
             </label>
           </div>
         </div>

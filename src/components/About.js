@@ -1,39 +1,43 @@
-import React, { useState } from "react";
+import React, {/* useState */} from "react";
+// import propTypes from "prop-types";
 
-export default function About() {
+export default function About(props) {
 
-    const [myStyle,setmyStyle] = useState({
+    // const [myStyle,setmyStyle] = useState({
         
-        color: 'black',
-        backgroundColor: '#fff'
-    })
+    //     color: 'black',
+    //     backgroundColor: '#fff'
+    // })
+let myStyle = {
+   color : props.mode === 'dark' ? 'white' : 'black' ,
+   backgroundColor: props.mode === 'dark' ? 'black' : 'white'
+}
+// const [btnText,setBtnText] = useState("Enable Dark Mode")
 
-const [btnText,setBtnText] = useState("Enable Dark Mode")
-
-    const darkMode = () =>{
-        if(myStyle.color === 'black'){
-            setmyStyle({
+//     const darkMode = () =>{
+//         if(myStyle.color === 'black'){
+//             setmyStyle({
                
-                color: 'white',
-                backgroundColor: '#353535'
-            })
-            setBtnText("Enable light mode")
-        }
-        else{
-            setmyStyle({
+//                 color: 'white',
+//                 backgroundColor: '#353535'
+//             })
+//             setBtnText("Enable light mode")
+//         }
+//         else{
+//             setmyStyle({
                
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Enable dark mode")
-        }
-    }
+//                 color: 'black',
+//                 backgroundColor: 'white'
+//             })
+//             setBtnText("Enable dark mode")
+//         }
+//     }
 
    
 
   return (
     <div style={myStyle}>
-      <h1>About us</h1>
+      <h1 className="container my-3 mx-3"><u>About us</u></h1>
       <div className="container" style={myStyle}>
         <div className="accordion accordion-flush" id="accordionFlushExample">
           <div className="accordion-item">
@@ -122,7 +126,7 @@ const [btnText,setBtnText] = useState("Enable Dark Mode")
             </div>
           </div>
         </div>
-        <button type="button" className="btn btn-primary my-3" onClick={darkMode} >{btnText}</button>
+        {/* <button type="button" className="btn btn-primary my-3" onClick={darkMode} >{btnText}</button> */}
 
       </div>
     </div>

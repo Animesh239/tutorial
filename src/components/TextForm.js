@@ -17,6 +17,7 @@ export default function TextForm(props) {
     var text = document.getElementById("box");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to clipboard", "success")   ; 
   };
 
@@ -93,7 +94,7 @@ export default function TextForm(props) {
       <div className="container my-4">
         <h1>Your Text Summary </h1>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length !== 0}).length} words and {text.length} characters
         </p>
         <p> {0.008 * text.split(" ").length} Minutes Read</p>
         <h4>The End</h4>

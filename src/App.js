@@ -2,11 +2,11 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import About from "./components/About";
+import About from "./components/About";
 import React, { useState } from "react";
 import Alerts from "./components/Alerts";
 
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 function App() {
   const [mode, setmode] = useState("light");
@@ -38,27 +38,29 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
+      <HashRouter basename="/">
         <Navbar title="UDEMY" mode={mode} toggleMode={toggleMode} />
         <Alerts alert={alert} />
 
         <div className="container my-3">
-          {/* <Routes>
+          <Routes>
             <Route
               exact
               path="/"
-              element={ */}
+              element={
                 <TextForm
                   showAlert={showAlert}
                   heading="Enter the text to analyse"
                   mode={mode}
                 />
-              {/* }
+              }
             />
-            <Route exact path="about/*" element={<About />} />
-          </Routes> */}
+            <Route exact path="about/*" element={<About mode={mode} />} />
+          </Routes>
         </div>
-      {/* </BrowserRouter> */}
+        </HashRouter>
+      </BrowserRouter>
     </>
   );
 }
